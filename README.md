@@ -19,6 +19,7 @@ A collection of Data Structures and Algorithms problems, solutions, and topic-wi
 ### Backtracking
 - Largest Number with K Swaps
 - N-Digit Number with Monotonic Digits
+- Rat in a Maze
 
 ### Graph
 - Graph implementations
