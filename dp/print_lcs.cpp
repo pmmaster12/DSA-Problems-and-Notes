@@ -1,7 +1,9 @@
 // Online C++ compiler to run C++ program online
 #include <bits/stdc++.h>
 using namespace std;
+
 vector<vector<int>>dp;
+
 int lcs(vector<int>&a, vector<int>&b , int i1 , int i2){
     int n = a.size();
     int m = b.size();
@@ -18,8 +20,6 @@ int lcs(vector<int>&a, vector<int>&b , int i1 , int i2){
 }
 
 int main() {
-    // Write C++ code here
-    // std::cout << "Try programiz.pro";
     int n,m;
     cin>>n>>m;
     vector<int>a(n),b(m);
@@ -41,7 +41,7 @@ int main() {
             }
         }
     }
-    cout<<dp[0][0]<<endl;
+    cout<<"size of lcs stribn : -"<<dp[0][0]<<endl;
     
     vector<int>ans;
     
@@ -59,8 +59,10 @@ int main() {
                 j++;
         }
     }
+    cout<<"the actual lcs vector"<<endl;
     for(auto x: ans){
         cout<<x<<" ";
     }
+    // this is how can print the code
     return 0;
 }
