@@ -18,29 +18,37 @@ public:
 
 Node *TreeConstruction(Node *root)
 {
+    queue<Node *> q;
+    cout << "enter data for root node: " << endl;
     int val;
-    cout << "enter the value of node :";
     cin >> val;
-    if (val == -1)
+    root = new Node(val);
+    q.push(root);
+    while (!q.empty())
     {
-        root = NULL;
-        return root;
+        Node *temp = q.front();
+        q.pop();
+
+        cout << "Enter left node for: " << temp->data<< endl;
+        int val1;
+        cin >> val1;
+        if (val1 != -1)
+        {
+            temp->left = new Node(val1);
+            q.push(temp->left);
+        }
+        cout << "Enter right node for: " << temp->data<< endl;
+        int val2;
+        cin >> val2;
+        if (val2 != -1)
+        {
+            temp->right = new Node(val2);
+             q.push(temp->right);
+        }
     }
-    Node *temp = new Node(val);
-    root = temp;
-    root->left = TreeConstruction(root->left);
-    root->right = TreeConstruction(root->right);
     return root;
 }
-void dfs(Node *root)
-{
-    if (root == NULL)
-        return;
-    cout << root->data << " ";
-    dfs(root->left);
-    dfs(root->right);
-    return;
-}
+
 void bfs(Node *root)
 {
     if (root == NULL)
@@ -65,9 +73,9 @@ void bfs(Node *root)
             cout << temp->data << " ";
 
             if (temp->left != NULL)
-                level.push(root->left);
+                level.push(temp->left);
             if (temp->right != NULL)
-                level.push(root->right);
+                level.push(temp->right);
         }
     }
     return;
@@ -78,8 +86,9 @@ int main()
     // constructing tree
     Node *root = NULL;
     root = TreeConstruction(root);
-    dfs(root);
-    cout << endl;
+    cout<<endl;
+    cout<<"BFS TRAVERSAL FOR THE TREE"<<endl;
     bfs(root);
+    cout << endl;
     return 0;
 }
