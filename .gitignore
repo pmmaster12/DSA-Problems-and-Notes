@@ -1,5 +1,4 @@
 .cph/
 .vscode/
 .env
-dp/a.exe
-
+*.exe
